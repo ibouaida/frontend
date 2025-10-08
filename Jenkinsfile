@@ -22,13 +22,13 @@ pipeline {
             }
         }
 
-        // stage('Docker tag image') {
-        //     steps {
-        //         script {
-        //             sh 'docker tag backend:v1.0.0 ibou1984/backend:v1.0.0'
-        //         }
-        //     }
-        // }
+        stage('Docker tag image') {
+            steps {
+                script {
+                    sh 'docker tag frontend:v1.0.0 ibou1984/frontend:v1.0.0'
+                }
+            }
+        }
 
         // stage('Docker push image') {
         //     steps {
