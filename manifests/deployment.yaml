@@ -1,8 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
   namespace: ml-project
+  name: frontend-deployment
+  labels:
+    name: frontend-deployment
+    app: frontend
 spec:
   selector:
     matchLabels:
@@ -14,10 +17,17 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ibou1984/frontend:v1.0.0
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        image: https://github.com/ibouaida/projet-memoire.git
         ports:
-        - containerPort: 80
+        - containerPort: 3000
+        env:
+        - name: REACT_APP_BACKEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: frontent-configmap
+              key: REACT_APP_BACKEND_URL
+        - name: CHOKIDAR_USEPOLLING
+          valueFrom:
+            configMapKeyRef:
+              name: frontent-configmap
+              key: CHOKIDAR_USEPOLLING
