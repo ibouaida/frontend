@@ -22,7 +22,7 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <h1>Prévoir votre date de décès</h1>
+      <h1>Prévoir votre date de mariage</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
