@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: https://github.com/ibouaida/frontend.git
+        image: ibou1984/frontend:v1.0.0
         ports:
         - containerPort: 3000
         env:
