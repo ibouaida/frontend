@@ -17,7 +17,7 @@ pipeline {
         stage('Docker build image') {
             steps {
                 script {
-                    sh 'docker build -t frontend:v1.1.0 .'
+                    sh 'docker build -t frontend:v1.0.0 .'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Docker tag image') {
             steps {
                 script {
-                    sh 'docker tag frontend:v1.1.0 ibou1984/frontend:v1.1.0'
+                    sh 'docker tag frontend:v1.0.0 ibou1984/frontend:v1.0.0'
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Docker push image') {
             steps {
                 script {
-                    sh 'docker push ibou1984/frontend:v1.1.0'
+                    sh 'docker push ibou1984/frontend:v1.0.0'
                 }
             }
         }
