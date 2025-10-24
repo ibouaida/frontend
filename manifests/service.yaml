@@ -4,14 +4,15 @@ metadata:
   namespace: ml-project
   name: frontend-service
   labels:
-    name: frontend-service
+    app: frontend
 spec:
   type: NodePort
   selector:
     app: frontend
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
-      nodePort: 30001
-      name: frontend-cluster-ip
+      port: 80          # ✅ le service écoute sur 80
+      targetPort: 80    # ✅ ton conteneur écoute sur 80
+      nodePort: 30001   # ✅ accessible depuis http://localhost:30001
+      name: frontend-http
+
